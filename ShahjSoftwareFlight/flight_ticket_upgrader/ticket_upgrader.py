@@ -1,6 +1,6 @@
 import os
 import csv
-from flight_ticket_upgrader import validations
+from flight_ticket_upgrader import object_validator
 from flight_ticket_upgrader import error_strings
 from flight_ticket_upgrader import offers
 from flight_ticket_upgrader.constants import *
@@ -11,7 +11,7 @@ class PassengerDetailManager:
         self.base_path = os.path.dirname(os.path.abspath(__file__))
 
     def parse_passenger_details(self):
-        validator = validations.Validations()
+        validator = object_validator.ObjectValidator()
         with open(self.base_path + input_file, "r") as input_file_handler:
             header = input_file_handler.readline()
             print("Header line - {}".format(header))

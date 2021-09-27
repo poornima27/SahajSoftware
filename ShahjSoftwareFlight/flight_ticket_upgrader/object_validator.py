@@ -3,7 +3,7 @@ import time
 from flight_ticket_upgrader.constants import *
 
 
-class Validations:
+class ObjectValidator:
 
     def validate_objects(self, validation_dict):
 
