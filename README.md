@@ -8,4 +8,6 @@ FlightTicketUpgrader
 - **Output files** 
   - ShahjSoftwareFlight/flight_ticket_upgrader/output_files/parsed_data.csv
   - ShahjSoftwareFlight/flight_ticket_upgrader/output_files/error_data.csv
+- **Unit Tests**
+  - ShahjSoftwareFlight/tests/test_ticket_upgrader.py
                       
