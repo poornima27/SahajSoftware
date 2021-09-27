@@ -1,5 +1,10 @@
 
 def get_offer_for_class(f_class):
+    """
+    Returns the offer code based on the Fare class
+    :param f_class:
+    :return:
+    """
     # Offer code for A-E
     if 65 <= ord(f_class) <= 69:
         return "OFFER_20"

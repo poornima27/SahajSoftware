@@ -4,7 +4,9 @@ from flight_ticket_upgrader.constants import *
 
 
 class ObjectValidator:
-
+    """
+    This class validates the passenger details like email, mobile number, PNR, travel date, cabin
+    """
     def validate_objects(self, validation_dict):
 
         result_dict = {
@@ -44,7 +46,12 @@ class ObjectValidator:
 
     @staticmethod
     def validate_ticket_date(ticket_date, booking_date):
-
+        """
+        Validates if ticket date is greater than the booking date
+        :param ticket_date:
+        :param booking_date:
+        :return:
+        """
         ticket_date_obj = time.strptime(ticket_date, "%Y-%m-%d")
         booking_date_obj = time.strptime(booking_date, "%Y-%m-%d")
 

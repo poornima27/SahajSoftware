@@ -7,10 +7,17 @@ from flight_ticket_upgrader.constants import *
 
 
 class PassengerDetailManager:
+    """
+    This class parses the input file, validates it and write the data back to the error and output files
+    """
     def __init__(self):
         self.base_path = os.path.dirname(os.path.abspath(__file__))
 
     def parse_passenger_details(self):
+        """
+        Method to parse the passenger details
+        :return:
+        """
         validator = object_validator.ObjectValidator()
         with open(self.base_path + input_file, "r") as input_file_handler:
             header = input_file_handler.readline()
@@ -35,7 +42,12 @@ class PassengerDetailManager:
                     self.write_parsed_data(line)
 
     def write_error_data(self, data, error):
-
+        """
+        Method to write the data to error file
+        :param data:
+        :param error:
+        :return:
+        """
         data[cabin_type_index] = data[cabin_type_index].strip()
         found_error = " | ".join(error)
         data.append(found_error)
@@ -44,6 +56,11 @@ class PassengerDetailManager:
             csvwriter.writerow(data)
 
     def write_parsed_data(self, data):
+        """
+        Method to write valid data into the output file
+        :param data:
+        :return:
+        """
         offer = offers.get_offer_for_class(data[fare_type_index].strip())
         data[cabin_type_index] = data[cabin_type_index].strip()
         data.append(offer)
