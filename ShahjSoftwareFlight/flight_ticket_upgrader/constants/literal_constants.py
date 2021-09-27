@@ -1,0 +1,13 @@
+pnr = "pnr"
+travel_date = "travel_date"
+email = "email"
+mobile = "mobile"
+cabin_type = "cabin_type"
+pnr_index = 2
+fare_type_index = 3
+travel_date_index = 4
+booking_date_index = 6
+email_index = 7
+mobile_index = 8
+cabin_type_index = 9
+cabin_type_choices = ["economy", "premium economy", "business", "first"]
