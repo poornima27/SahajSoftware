@@ -6,16 +6,16 @@ from flight_ticket_upgrader import offers
 from flight_ticket_upgrader.constants import *
 
 
-class ParsePassengerDetails:
+class PassengerDetailManager:
     def __init__(self):
         self.base_path = os.path.dirname(os.path.abspath(__file__))
 
     def parse_passenger_details(self):
         validator = validations.Validations()
-        with open(self.base_path + input_file, "r") as fl:
-            header = fl.readline()
+        with open(self.base_path + input_file, "r") as input_file_handler:
+            header = input_file_handler.readline()
             print("Header line - {}".format(header))
-            lines = fl.readlines()
+            lines = input_file_handler.readlines()
             for index, line in enumerate(lines):
                 line = line.split(",")
                 print("line {} - {}".format(index, line))
@@ -39,17 +39,17 @@ class ParsePassengerDetails:
         data[cabin_type_index] = data[cabin_type_index].strip()
         found_error = " | ".join(error)
         data.append(found_error)
-        with open(self.base_path + error_file, "a") as wef:
-            csvwriter = csv.writer(wef, lineterminator='\n')
+        with open(self.base_path + error_file, "a") as error_file_handler:
+            csvwriter = csv.writer(error_file_handler, lineterminator='\n')
             csvwriter.writerow(data)
 
     def write_parsed_data(self, data):
         offer = offers.get_offer_for_class(data[fare_type_index].strip())
         data[cabin_type_index] = data[cabin_type_index].strip()
         data.append(offer)
-        with open(self.base_path + output_file, "a") as wpf:
-            csvwriter = csv.writer(wpf, lineterminator='\n')
+        with open(self.base_path + output_file, "a") as output_file_handler:
+            csvwriter = csv.writer(output_file_handler, lineterminator='\n')
             csvwriter.writerow(data)
 
 
-ParsePassengerDetails().parse_passenger_details()
+PassengerDetailManager().parse_passenger_details()
