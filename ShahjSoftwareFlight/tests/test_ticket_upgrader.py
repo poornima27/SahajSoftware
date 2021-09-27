@@ -46,11 +46,11 @@ class TestTicketUpgrader(unittest.TestCase):
         self.assertRegexpMatches("STHYYY", pnr_regex)
         self.assertRegexpMatches("123456", pnr_regex)
 
-        self.assertNotRegexpMatches("WXE1234", email_regex)
-        self.assertNotRegexpMatches("WXE12", email_regex)
-        self.assertNotRegexpMatches("ABC#12", email_regex)
-        self.assertNotRegexpMatches("ABC#$%", email_regex)
-        self.assertNotRegexpMatches(":?!@#$", email_regex)
+        self.assertNotRegexpMatches("WXE1234", pnr_regex)
+        self.assertNotRegexpMatches("WXE12", pnr_regex)
+        self.assertNotRegexpMatches("ABC#12", pnr_regex)
+        self.assertNotRegexpMatches("ABC#$%", pnr_regex)
+        self.assertNotRegexpMatches(":?!@#$", pnr_regex)
 
 
 if __name__ == '__main__':
