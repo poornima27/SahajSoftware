@@ -24,7 +24,8 @@ with open(base_path + "/input_files/input.csv", "r") as fl:
 
         if found_error:
             line[9] = line[9].strip()
-            line.extend(found_error)
+            found_error = "|".join(found_error)
+            line.append(found_error)
             with open(base_path + "/output_files/error_data.csv", "a") as wef:
                 csvwriter = csv.writer(wef, lineterminator='\n')
                 csvwriter.writerow(line)
